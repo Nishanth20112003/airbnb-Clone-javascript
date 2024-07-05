@@ -1,0 +1,26 @@
+amazing_pools_data.map((item) => {
+  let card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `<a href="${item.url}" target="_blank">
+  <img src="${item.img_Src}" class="icon_image">
+  <p class="icon_title mt-2">${item.title}</p>
+  <p class="icon_hosted mt-[-1px]">${item.hosted}</p>
+
+  <p class="icon_price mt-[-1px]">${item.price}</p>
+  </a>`;
+  amazing_pool_section.appendChild(card);
+});
+
+nav_items.forEach((item) => {
+  item.addEventListener("click", () => {
+    setActive(item);
+  });
+});
+function setActive(clickedItem) {
+  nav_items.forEach((item) => {
+    item.classList.remove("active");
+    item.classList.add("in-active");
+  });
+  clickedItem.classList.remove("in-active");
+  clickedItem.classList.add("active");
+}
